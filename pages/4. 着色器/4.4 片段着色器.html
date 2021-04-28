@@ -1,0 +1,822 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4.4 片段着色器 · 游戏引擎浅入浅出</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="captainchen">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../5. 绘制贴图/5. 绘制贴图.html" />
+    
+    
+    <link rel="prev" href="4.3 顶点着色器.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">目录</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../前言.html">
+            
+                <a href="../前言.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1. 游戏引擎框架介绍/1. 游戏引擎框架介绍.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1. 游戏引擎框架介绍.html">
+            
+                    
+                    1. 游戏引擎框架介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../1. 游戏引擎框架介绍/1.1 暗中观察unity.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1.1 暗中观察unity.html">
+            
+                    
+                    1.1 暗中观察unity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../1. 游戏引擎框架介绍/1.2 游戏引擎组成.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1.2 游戏引擎组成.html">
+            
+                    
+                    1.2 游戏引擎组成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../2. Opengl开发环境搭建/2. Opengl开发环境搭建.html">
+            
+                <a href="../2. Opengl开发环境搭建/2. Opengl开发环境搭建.html">
+            
+                    
+                    2. Opengl开发环境搭建
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../2. Opengl开发环境搭建/2.1 Opengl到底是什么.html">
+            
+                <a href="../2. Opengl开发环境搭建/2.1 Opengl到底是什么.html">
+            
+                    
+                    2.1 Opengl到底是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../2. Opengl开发环境搭建/2.2 搭建Opengl开发环境.html">
+            
+                <a href="../2. Opengl开发环境搭建/2.2 搭建Opengl开发环境.html">
+            
+                    
+                    2.2 搭建Opengl开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../3. 绘制简单图形/3. 绘制简单图形.html">
+            
+                <a href="../3. 绘制简单图形/3. 绘制简单图形.html">
+            
+                    
+                    3. 绘制简单图形
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../3. 绘制简单图形/3.1 画个三角形.html">
+            
+                <a href="../3. 绘制简单图形/3.1 画个三角形.html">
+            
+                    
+                    3.1 画个三角形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../3. 绘制简单图形/3.2 画个正方形.html">
+            
+                <a href="../3. 绘制简单图形/3.2 画个正方形.html">
+            
+                    
+                    3.2 画个正方形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../3. 绘制简单图形/3.3 画个立方体.html">
+            
+                <a href="../3. 绘制简单图形/3.3 画个立方体.html">
+            
+                    
+                    3.3 画个立方体
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="4. 着色器.html">
+            
+                <a href="4. 着色器.html">
+            
+                    
+                    4. 着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="4.1 着色器是什么.html">
+            
+                <a href="4.1 着色器是什么.html">
+            
+                    
+                    4.1 着色器是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="4.2 Unity Shader和OpenGL Shader.html">
+            
+                <a href="4.2 Unity Shader和OpenGL Shader.html">
+            
+                    
+                    4.2 Unity Shader和OpenGL Shader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="4.3 顶点着色器.html">
+            
+                <a href="4.3 顶点着色器.html">
+            
+                    
+                    4.3 顶点着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5.4" data-path="4.4 片段着色器.html">
+            
+                <a href="4.4 片段着色器.html">
+            
+                    
+                    4.4 片段着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../5. 绘制贴图/5. 绘制贴图.html">
+            
+                <a href="../5. 绘制贴图/5. 绘制贴图.html">
+            
+                    
+                    5. 绘制贴图
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="../5. 绘制贴图/5.1 颜色和贴图.html">
+            
+                <a href="../5. 绘制贴图/5.1 颜色和贴图.html">
+            
+                    
+                    5.1 颜色和贴图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.2" data-path="../5. 绘制贴图/5.2 贴图文件介绍.html">
+            
+                <a href="../5. 绘制贴图/5.2 贴图文件介绍.html">
+            
+                    
+                    5.2 贴图文件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.3" data-path="../5. 绘制贴图/5.3 CPU与GPU的通信方式.html">
+            
+                <a href="../5. 绘制贴图/5.3 CPU与GPU的通信方式.html">
+            
+                    
+                    5.3 CPU与GPU的通信方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.4" data-path="../5. 绘制贴图/5.4 使用stb_image解析图片.html">
+            
+                <a href="../5. 绘制贴图/5.4 使用stb_image解析图片.html">
+            
+                    
+                    5.4 使用stb_image解析图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.5" data-path="../5. 绘制贴图/5.5 绘制带贴图的立方体盒子.html">
+            
+                <a href="../5. 绘制贴图/5.5 绘制带贴图的立方体盒子.html">
+            
+                    
+                    5.5 绘制带贴图的立方体盒子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.6" data-path="../5. 绘制贴图/5.6 压缩纹理.html">
+            
+                <a href="../5. 绘制贴图/5.6 压缩纹理.html">
+            
+                    
+                    5.6 压缩纹理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.7" data-path="../5. 绘制贴图/5.7 图片压缩工具.html">
+            
+                <a href="../5. 绘制贴图/5.7 图片压缩工具.html">
+            
+                    
+                    5.7 图片压缩工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.8" data-path="../5. 绘制贴图/5.8 使用压缩纹理.html">
+            
+                <a href="../5. 绘制贴图/5.8 使用压缩纹理.html">
+            
+                    
+                    5.8 使用压缩纹理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../6. 索引与缓冲区对象/6. 缓冲区对象.html">
+            
+                <a href="../6. 索引与缓冲区对象/6. 缓冲区对象.html">
+            
+                    
+                    6. 缓冲区对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.7.1" data-path="../6. 索引与缓冲区对象/6.1 顶点索引.html">
+            
+                <a href="../6. 索引与缓冲区对象/6.1 顶点索引.html">
+            
+                    
+                    6.1 顶点索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7.2" data-path="../6. 索引与缓冲区对象/6.2 缓冲区对象.html">
+            
+                <a href="../6. 索引与缓冲区对象/6.2 缓冲区对象.html">
+            
+                    
+                    6.2 缓冲区对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../7. Mesh和材质/7. Mesh和材质.html">
+            
+                <a href="../7. Mesh和材质/7. Mesh和材质.html">
+            
+                    
+                    7. Mesh和材质
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.8.1" data-path="../7. Mesh和材质/7.1 导出Mesh文件.html">
+            
+                <a href="../7. Mesh和材质/7.1 导出Mesh文件.html">
+            
+                    
+                    7.1 导出Mesh文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.2" data-path="../7. Mesh和材质/7.2 使用Mesh文件.html">
+            
+                <a href="../7. Mesh和材质/7.2 使用Mesh文件.html">
+            
+                    
+                    7.2 使用Mesh文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.3" data-path="../7. Mesh和材质/7.3 Shader文件创建与使用.html">
+            
+                <a href="../7. Mesh和材质/7.3 Shader文件创建与使用.html">
+            
+                    
+                    7.3 Shader文件创建与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >4.4 片段着色器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#44-&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;"><b></b>4.4 &#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x7B80;&#x5355;&#x7684;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;"><b></b>1.&#x7B80;&#x5355;&#x7684;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;</a></li><li><span class="title-icon "></span><a href="#2&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;"><b></b>2.&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#3-&#x63D2;&#x503C;"><b></b>3. &#x63D2;&#x503C;</a></li></ul></ul></ul></div><h2 id="44-&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;"><a name="44-&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;" class="anchor-navigation-ex-anchor" href="#44-&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>4.4 &#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;</h2>
+<p>&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x7684;&#x529F;&#x80FD;&#x5C31;&#x662F;&#xFF1A;<font color="green">&#x8F93;&#x51FA;&#x989C;&#x8272;</font>&#x3002;</p>
+<p>&#x5728;&#x4E0A;&#x4E00;&#x8282;(&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;)&#x91CC;&#x4ECB;&#x7ECD;&#x4E86;&#xFF0C;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x662F;&#x5E76;&#x884C;&#x7684;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7ED8;&#x5236;3&#x4E2A;&#x9876;&#x70B9;&#xFF0C;GPU&#x5C06;3&#x4E2A;&#x9876;&#x70B9;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x644A;&#x5230;3&#x4E2A;GPU&#x903B;&#x8F91;&#x5355;&#x5143;&#x5E76;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x6BCF;&#x4E2A;GPU&#x903B;&#x8F91;&#x5355;&#x5143;&#x540C;&#x65F6;&#x6267;&#x884C;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x4E5F;&#x662F;&#x5E76;&#x884C;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x6267;&#x884C;&#x7684;&#x6B21;&#x6570;&#x4E0D;&#x662F;&#x9876;&#x70B9;&#x4E2A;&#x6570;&#xFF0C;&#x800C;&#x662F;&#x5C4F;&#x5E55;&#x50CF;&#x7D20;&#x4E2A;&#x6570;&#x3002;</p>
+<p>&#x4E3E;&#x4F8B;&#x7ED8;&#x5236;&#x4E00;&#x4E2A;960x540&#x7684;&#x957F;&#x65B9;&#x5F62;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x50CF;&#x7D20;&#x70B9;&#x7684;&#x989C;&#x8272;&#xFF0C;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x6765;&#x5F97;&#x5230;&#xFF0C;&#x90A3;&#x4E48;GPU&#x9700;&#x8981;&#x6267;&#x884C;960x540&#x6B21;&#x3002;</p>
+<pre><code>&#x9876;&#x70B9;&#x6570;&#x8D8A;&#x591A;&#xFF0C;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x6267;&#x884C;&#x6B21;&#x6570;&#x8D8A;&#x591A;&#x3002;
+&#x5C4F;&#x5E55;&#x5206;&#x8FA8;&#x7387;&#x8D8A;&#x9AD8;&#xFF0C;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x6267;&#x884C;&#x6B21;&#x6570;&#x8D8A;&#x591A;&#x3002;
+&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x63A8;&#x51FA;&#x624B;&#x6E38;&#x5E38;&#x89C1;&#x7684;&#x4E24;&#x79CD;&#x4F18;&#x5316;&#x65B9;&#x5F0F;&#xFF1A;&#x51CF;&#x5C11;&#x9876;&#x70B9;&#x3001;&#x964D;&#x4F4E;&#x5206;&#x8FA8;&#x7387;&#x3002;
+</code></pre><h3 id="1&#x7B80;&#x5355;&#x7684;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;"><a name="1&#x7B80;&#x5355;&#x7684;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;" class="anchor-navigation-ex-anchor" href="#1&#x7B80;&#x5355;&#x7684;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>1.&#x7B80;&#x5355;&#x7684;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;</h3>
+<pre><code class="lang-glsl"><span class="hljs-meta">#version 330</span>
+<span class="hljs-keyword">in</span> <span class="hljs-type">vec4</span> v_color;
+<span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">0</span>) <span class="hljs-keyword">out</span> <span class="hljs-type">vec4</span> o_fragColor;
+<span class="hljs-type">void</span> main()
+{
+    o_fragColor = v_color;
+}
+</code></pre>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x7B2C;3&#x7AE0;&#x7528;&#x7684;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#xFF0C;&#x4EC5;&#x5B9E;&#x73B0;&#x4E86;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x7684;&#x6700;&#x57FA;&#x7840;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="2&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;"><a name="2&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;</h3>
+<h4 id="21-&#x7248;&#x672C;&#x9650;&#x5B9A;"><a name="21-&#x7248;&#x672C;&#x9650;&#x5B9A;" class="anchor-navigation-ex-anchor" href="#21-&#x7248;&#x672C;&#x9650;&#x5B9A;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 &#x7248;&#x672C;&#x9650;&#x5B9A;</h4>
+<pre><code class="lang-glsl"><span class="hljs-meta">#version 330</span>
+</code></pre>
+<p>&#x5728;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x91CC;&#x8BB2;&#x4E86;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x91CD;&#x590D;&#x4E86;&#x3002;</p>
+<h4 id="22-&#x8F93;&#x5165;&#x53D8;&#x91CF;"><a name="22-&#x8F93;&#x5165;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#22-&#x8F93;&#x5165;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x8F93;&#x5165;&#x53D8;&#x91CF;</h4>
+<pre><code class="lang-glsl"><span class="hljs-keyword">in</span> <span class="hljs-type">vec4</span> v_color;
+</code></pre>
+<p>&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7684;<code>&#x8F93;&#x51FA;&#x53D8;&#x91CF;</code>&#xFF0C;&#x4F20;&#x9012;&#x5230;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x7684;<code>&#x8F93;&#x5165;&#x53D8;&#x91CF;</code>&#x3002;</p>
+<h4 id="23-&#x8F93;&#x51FA;&#x53D8;&#x91CF;"><a name="23-&#x8F93;&#x51FA;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#23-&#x8F93;&#x51FA;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 &#x8F93;&#x51FA;&#x53D8;&#x91CF;</h4>
+<pre><code class="lang-glsl"><span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">0</span>) <span class="hljs-keyword">out</span> <span class="hljs-type">vec4</span> o_fragColor;
+</code></pre>
+<p>&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5C31;&#x662F;&#x8BA1;&#x7B97;&#x989C;&#x8272;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x51FA;&#x7ED9;&#x663E;&#x5361;&#x3002;
+&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x8F93;&#x51FA;&#x53D8;&#x91CF;&#xFF0C;&#x4EE5;<code>out</code> &#x4FEE;&#x9970;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x662F; <code>o_fragColor</code>&#x3002;</p>
+<pre><code>&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x53EF;&#x4EE5;&#x7531;&#x591A;&#x4E2A;&#x8F93;&#x51FA;&#x53D8;&#x91CF;&#xFF0C;&#x8F93;&#x51FA;&#x5230;&#x591A;&#x4E2A;&#x6E32;&#x67D3;&#x76EE;&#x6807;(MRT)&#x3002;
+&#x4F8B;&#x5982;&#x5728;Unity UI&#x4E0A;&#x663E;&#x793A;&#x6A21;&#x578B;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x6A21;&#x578B;&#x6E32;&#x67D3;&#x5230;RTT&#xFF0C;&#x6B64;&#x65F6;RTT&#x5C31;&#x662F;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x7684;&#x6E32;&#x67D3;&#x76EE;&#x6807;&#x3002;
+</code></pre><h4 id="24-&#x51FD;&#x6570;&#x903B;&#x8F91;"><a name="24-&#x51FD;&#x6570;&#x903B;&#x8F91;" class="anchor-navigation-ex-anchor" href="#24-&#x51FD;&#x6570;&#x903B;&#x8F91;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4 &#x51FD;&#x6570;&#x903B;&#x8F91;</h4>
+<pre><code class="lang-glsl"><span class="hljs-type">void</span> main()
+{
+    o_fragColor = v_color;
+}
+</code></pre>
+<p>&#x5165;&#x53E3;&#x51FD;&#x6570; <code>main()</code>&#xFF0C;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5C31;&#x662F;&#x5C06;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8F93;&#x51FA;&#x7684;&#x989C;&#x8272;&#xFF0C;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x3002;</p>
+<h3 id="3-&#x63D2;&#x503C;"><a name="3-&#x63D2;&#x503C;" class="anchor-navigation-ex-anchor" href="#3-&#x63D2;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x63D2;&#x503C;</h3>
+<p>&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8F93;&#x51FA;&#x989C;&#x8272;&#xFF0C;&#x4F5C;&#x4E3A;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8F93;&#x5165;&#x989C;&#x8272;&#x3002;</p>
+<p>&#x8FD9;&#x53E5;&#x8BDD;&#x662F;&#x5BF9;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;<font color="red">&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8F93;&#x51FA;&#x989C;&#x8272; &#x2260; &#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x8F93;&#x5165;&#x989C;&#x8272;</font>&#x3002;</p>
+<p>&#x4ED4;&#x7EC6;&#x601D;&#x8003;&#xFF0C;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x5BF9;&#x6BCF;&#x4E2A;&#x9876;&#x70B9;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x5BF9;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x7740;&#x8272;&#x5668;&#x7684;&#x76EE;&#x6807;&#x90FD;&#x4E0D;&#x4E00;&#x6837;&#x3002;</p>
+<p><a href="../../imgs/opengl_draw_polygon/draw_quad/draw_quad_success.png" data-lightbox="415e18cd-ff63-4e58-83a7-e2b58985eaaa" data-title=""><img src="../../imgs/opengl_draw_polygon/draw_quad/draw_quad_success.png" alt=""></a></p>
+<p>&#x5728; <code>3.2 &#x753B;&#x4E2A;&#x6B63;&#x65B9;&#x5F62;</code> &#x8FD9;&#x4E00;&#x8282;&#xFF0C;&#x7ED8;&#x5236;&#x4E00;&#x4E2A;200x200 &#x5DE6;&#x53F3;&#x5927;&#x5C0F;&#x7684;&#x6B63;&#x65B9;&#x5F62;&#x3002;(&#x5982;&#x4E0A;&#x56FE;)
+&#x6B63;&#x65B9;&#x5F62;&#x56DB;&#x4E2A;&#x9876;&#x70B9;&#xFF0C;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x53EA;&#x9700;&#x8981;&#x6267;&#x884C;4&#x6B21;&#xFF0C;&#x800C;&#x9762;&#x5BF9;200x200&#x4E2A;&#x50CF;&#x7D20;&#xFF0C;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x6267;&#x884C;200x200&#x6B21;&#x3002;
+&#x53EA;&#x6709;&#x6B63;&#x65B9;&#x5F62;&#x56DB;&#x4E2A;&#x9876;&#x70B9;&#x7684;&#x90A3;&#x56DB;&#x4E2A;&#x50CF;&#x7D20;&#xFF0C;&#x624D;&#x80FD;&#x76F4;&#x63A5;&#x4ECE;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x62FF;&#x5230;&#x989C;&#x8272;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x4E2D;&#x95F4;&#x7684;&#x50CF;&#x7D20;&#x989C;&#x8272;&#x6570;&#x636E;&#x4ECE;&#x54EA;&#x91CC;&#x6765;&#xFF1F;</p>
+<font color="red">&#x63D2;&#x503C;</font>
+&#x4E2D;&#x95F4;&#x7684;&#x50CF;&#x7D20;&#x989C;&#x8272;&#xFF0C;&#x90FD;&#x662F;&#x63D2;&#x503C;&#x5F97;&#x5230;&#x7684;&#x3002;
+
+&#x5DE6;&#x4E0A;&#x89D2;&#x9876;&#x70B9;&#x989C;&#x8272;&#x662F;&#x7EA2;&#x8272;&#xFF0C;&#x53F3;&#x4E0A;&#x89D2;&#x9876;&#x70B9;&#x989C;&#x8272;&#x662F;&#x84DD;&#x8272;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E2D;&#x95F4;&#x989C;&#x8272;&#x662F;&#x7531;&#x7EA2;&#x8272;&#x3001;&#x84DD;&#x8272;&#x63D2;&#x503C;&#x6DF7;&#x5408;&#x800C;&#x6210;&#x3002;
+
+<font color="red">&#x6CE8;&#x610F;&#xFF1A;&#x6240;&#x6709;&#x4ECE;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8F93;&#x51FA;&#x5230;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x90FD;&#x4F1A;&#x63D2;&#x503C;&#xFF01;</font>
+
+
+
+
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; captainchen all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
+2021-04-02 16:46:13
+</span></footer></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4.3 顶点着色器.html" class="navigation navigation-prev " aria-label="Previous page: 4.3 顶点着色器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../5. 绘制贴图/5. 绘制贴图.html" class="navigation navigation-next " aria-label="Next page: 5. 绘制贴图">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4.4 片段着色器","level":"2.5.4","depth":2,"next":{"title":"5. 绘制贴图","level":"2.6","depth":1,"path":"pages/5. 绘制贴图/5. 绘制贴图.md","ref":"pages/5. 绘制贴图/5. 绘制贴图.md","articles":[{"title":"5.1 颜色和贴图","level":"2.6.1","depth":2,"path":"pages/5. 绘制贴图/5.1 颜色和贴图.md","ref":"pages/5. 绘制贴图/5.1 颜色和贴图.md","articles":[]},{"title":"5.2 贴图文件介绍","level":"2.6.2","depth":2,"path":"pages/5. 绘制贴图/5.2 贴图文件介绍.md","ref":"pages/5. 绘制贴图/5.2 贴图文件介绍.md","articles":[]},{"title":"5.3 CPU与GPU的通信方式","level":"2.6.3","depth":2,"path":"pages/5. 绘制贴图/5.3 CPU与GPU的通信方式.md","ref":"pages/5. 绘制贴图/5.3 CPU与GPU的通信方式.md","articles":[]},{"title":"5.4 使用stb_image解析图片","level":"2.6.4","depth":2,"path":"pages/5. 绘制贴图/5.4 使用stb_image解析图片.md","ref":"pages/5. 绘制贴图/5.4 使用stb_image解析图片.md","articles":[]},{"title":"5.5 绘制带贴图的立方体盒子","level":"2.6.5","depth":2,"path":"pages/5. 绘制贴图/5.5 绘制带贴图的立方体盒子.md","ref":"pages/5. 绘制贴图/5.5 绘制带贴图的立方体盒子.md","articles":[]},{"title":"5.6 压缩纹理","level":"2.6.6","depth":2,"path":"pages/5. 绘制贴图/5.6 压缩纹理.md","ref":"pages/5. 绘制贴图/5.6 压缩纹理.md","articles":[]},{"title":"5.7 图片压缩工具","level":"2.6.7","depth":2,"path":"pages/5. 绘制贴图/5.7 图片压缩工具.md","ref":"pages/5. 绘制贴图/5.7 图片压缩工具.md","articles":[]},{"title":"5.8 使用压缩纹理","level":"2.6.8","depth":2,"path":"pages/5. 绘制贴图/5.8 使用压缩纹理.md","ref":"pages/5. 绘制贴图/5.8 使用压缩纹理.md","articles":[]}]},"previous":{"title":"4.3 顶点着色器","level":"2.5.3","depth":2,"path":"pages/4. 着色器/4.3 顶点着色器.md","ref":"pages/4. 着色器/4.3 顶点着色器.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","tbfed-pagefooter","splitter","lightbox","anchor-navigation-ex","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy captainchen","modify_format":"YYYY-MM-DD HH:mm:ss"},"livereload":{},"splitter":{},"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"captainchen","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"游戏引擎浅入浅出","gitbook":"*"},"file":{"path":"pages/4. 着色器/4.4 片段着色器.md","mtime":"2021-04-02T08:46:13.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-28T09:17:39.205Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

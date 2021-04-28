@@ -1,0 +1,942 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5.5 绘制带贴图的立方体盒子 · 游戏引擎浅入浅出</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="captainchen">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="5.6 压缩纹理.html" />
+    
+    
+    <link rel="prev" href="5.4 使用stb_image解析图片.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">目录</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../前言.html">
+            
+                <a href="../前言.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1. 游戏引擎框架介绍/1. 游戏引擎框架介绍.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1. 游戏引擎框架介绍.html">
+            
+                    
+                    1. 游戏引擎框架介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../1. 游戏引擎框架介绍/1.1 暗中观察unity.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1.1 暗中观察unity.html">
+            
+                    
+                    1.1 暗中观察unity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../1. 游戏引擎框架介绍/1.2 游戏引擎组成.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1.2 游戏引擎组成.html">
+            
+                    
+                    1.2 游戏引擎组成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../2. Opengl开发环境搭建/2. Opengl开发环境搭建.html">
+            
+                <a href="../2. Opengl开发环境搭建/2. Opengl开发环境搭建.html">
+            
+                    
+                    2. Opengl开发环境搭建
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../2. Opengl开发环境搭建/2.1 Opengl到底是什么.html">
+            
+                <a href="../2. Opengl开发环境搭建/2.1 Opengl到底是什么.html">
+            
+                    
+                    2.1 Opengl到底是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../2. Opengl开发环境搭建/2.2 搭建Opengl开发环境.html">
+            
+                <a href="../2. Opengl开发环境搭建/2.2 搭建Opengl开发环境.html">
+            
+                    
+                    2.2 搭建Opengl开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../3. 绘制简单图形/3. 绘制简单图形.html">
+            
+                <a href="../3. 绘制简单图形/3. 绘制简单图形.html">
+            
+                    
+                    3. 绘制简单图形
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../3. 绘制简单图形/3.1 画个三角形.html">
+            
+                <a href="../3. 绘制简单图形/3.1 画个三角形.html">
+            
+                    
+                    3.1 画个三角形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../3. 绘制简单图形/3.2 画个正方形.html">
+            
+                <a href="../3. 绘制简单图形/3.2 画个正方形.html">
+            
+                    
+                    3.2 画个正方形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../3. 绘制简单图形/3.3 画个立方体.html">
+            
+                <a href="../3. 绘制简单图形/3.3 画个立方体.html">
+            
+                    
+                    3.3 画个立方体
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../4. 着色器/4. 着色器.html">
+            
+                <a href="../4. 着色器/4. 着色器.html">
+            
+                    
+                    4. 着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../4. 着色器/4.1 着色器是什么.html">
+            
+                <a href="../4. 着色器/4.1 着色器是什么.html">
+            
+                    
+                    4.1 着色器是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../4. 着色器/4.2 Unity Shader和OpenGL Shader.html">
+            
+                <a href="../4. 着色器/4.2 Unity Shader和OpenGL Shader.html">
+            
+                    
+                    4.2 Unity Shader和OpenGL Shader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="../4. 着色器/4.3 顶点着色器.html">
+            
+                <a href="../4. 着色器/4.3 顶点着色器.html">
+            
+                    
+                    4.3 顶点着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="../4. 着色器/4.4 片段着色器.html">
+            
+                <a href="../4. 着色器/4.4 片段着色器.html">
+            
+                    
+                    4.4 片段着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="5. 绘制贴图.html">
+            
+                <a href="5. 绘制贴图.html">
+            
+                    
+                    5. 绘制贴图
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="5.1 颜色和贴图.html">
+            
+                <a href="5.1 颜色和贴图.html">
+            
+                    
+                    5.1 颜色和贴图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.2" data-path="5.2 贴图文件介绍.html">
+            
+                <a href="5.2 贴图文件介绍.html">
+            
+                    
+                    5.2 贴图文件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.3" data-path="5.3 CPU与GPU的通信方式.html">
+            
+                <a href="5.3 CPU与GPU的通信方式.html">
+            
+                    
+                    5.3 CPU与GPU的通信方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.4" data-path="5.4 使用stb_image解析图片.html">
+            
+                <a href="5.4 使用stb_image解析图片.html">
+            
+                    
+                    5.4 使用stb_image解析图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.6.5" data-path="5.5 绘制带贴图的立方体盒子.html">
+            
+                <a href="5.5 绘制带贴图的立方体盒子.html">
+            
+                    
+                    5.5 绘制带贴图的立方体盒子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.6" data-path="5.6 压缩纹理.html">
+            
+                <a href="5.6 压缩纹理.html">
+            
+                    
+                    5.6 压缩纹理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.7" data-path="5.7 图片压缩工具.html">
+            
+                <a href="5.7 图片压缩工具.html">
+            
+                    
+                    5.7 图片压缩工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.8" data-path="5.8 使用压缩纹理.html">
+            
+                <a href="5.8 使用压缩纹理.html">
+            
+                    
+                    5.8 使用压缩纹理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../6. 索引与缓冲区对象/6. 缓冲区对象.html">
+            
+                <a href="../6. 索引与缓冲区对象/6. 缓冲区对象.html">
+            
+                    
+                    6. 缓冲区对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.7.1" data-path="../6. 索引与缓冲区对象/6.1 顶点索引.html">
+            
+                <a href="../6. 索引与缓冲区对象/6.1 顶点索引.html">
+            
+                    
+                    6.1 顶点索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7.2" data-path="../6. 索引与缓冲区对象/6.2 缓冲区对象.html">
+            
+                <a href="../6. 索引与缓冲区对象/6.2 缓冲区对象.html">
+            
+                    
+                    6.2 缓冲区对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../7. Mesh和材质/7. Mesh和材质.html">
+            
+                <a href="../7. Mesh和材质/7. Mesh和材质.html">
+            
+                    
+                    7. Mesh和材质
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.8.1" data-path="../7. Mesh和材质/7.1 导出Mesh文件.html">
+            
+                <a href="../7. Mesh和材质/7.1 导出Mesh文件.html">
+            
+                    
+                    7.1 导出Mesh文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.2" data-path="../7. Mesh和材质/7.2 使用Mesh文件.html">
+            
+                <a href="../7. Mesh和材质/7.2 使用Mesh文件.html">
+            
+                    
+                    7.2 使用Mesh文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.3" data-path="../7. Mesh和材质/7.3 Shader文件创建与使用.html">
+            
+                <a href="../7. Mesh和材质/7.3 Shader文件创建与使用.html">
+            
+                    
+                    7.3 Shader文件创建与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >5.5 绘制带贴图的立方体盒子</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#55-&#x7ED8;&#x5236;&#x5E26;&#x8D34;&#x56FE;&#x7684;&#x7ACB;&#x65B9;&#x4F53;&#x76D2;&#x5B50;"><b></b>5.5 &#x7ED8;&#x5236;&#x5E26;&#x8D34;&#x56FE;&#x7684;&#x7ACB;&#x65B9;&#x4F53;&#x76D2;&#x5B50;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x4E0A;&#x4F20;rgb&#x6570;&#x636E;&#x5230;&#x663E;&#x5361;"><b></b>1. &#x4E0A;&#x4F20;RGB&#x6570;&#x636E;&#x5230;&#x663E;&#x5361;</a></li><li><span class="title-icon "></span><a href="#2-shader&#x4E2D;&#x4F7F;&#x7528;&#x7EB9;&#x7406;"><b></b>2. Shader&#x4E2D;&#x4F7F;&#x7528;&#x7EB9;&#x7406;</a></li><li><span class="title-icon "></span><a href="#3-&#x4E0A;&#x4F20;uv&#x5750;&#x6807;"><b></b>3. &#x4E0A;&#x4F20;UV&#x5750;&#x6807;</a></li><li><span class="title-icon "></span><a href="#5&#x6307;&#x5B9A;&#x7EB9;&#x7406;&#x6E32;&#x67D3;"><b></b>5.&#x6307;&#x5B9A;&#x7EB9;&#x7406;&#x6E32;&#x67D3;</a></li></ul></ul></ul></div><h2 id="55-&#x7ED8;&#x5236;&#x5E26;&#x8D34;&#x56FE;&#x7684;&#x7ACB;&#x65B9;&#x4F53;&#x76D2;&#x5B50;"><a name="55-&#x7ED8;&#x5236;&#x5E26;&#x8D34;&#x56FE;&#x7684;&#x7ACB;&#x65B9;&#x4F53;&#x76D2;&#x5B50;" class="anchor-navigation-ex-anchor" href="#55-&#x7ED8;&#x5236;&#x5E26;&#x8D34;&#x56FE;&#x7684;&#x7ACB;&#x65B9;&#x4F53;&#x76D2;&#x5B50;"><i class="fa fa-link" aria-hidden="true"></i></a>5.5 &#x7ED8;&#x5236;&#x5E26;&#x8D34;&#x56FE;&#x7684;&#x7ACB;&#x65B9;&#x4F53;&#x76D2;&#x5B50;</h2>
+<pre><code>CLion&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x4F4D;&#x4E8E; samples\texture\draw_cube_texture
+</code></pre><p>&#x4E0A;&#x4E00;&#x8282;&#x5DF2;&#x7ECF;&#x89E3;&#x6790;&#x4E86;&#x56FE;&#x7247;&#xFF0C;&#x5F97;&#x5230;RGB&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x4E00;&#x8282;&#x5C06;&#x6570;&#x636E;&#x4E0A;&#x4F20;&#x5230;&#x663E;&#x5361;&#x5E76;&#x6E32;&#x67D3;&#x3002;</p>
+<h3 id="1-&#x4E0A;&#x4F20;rgb&#x6570;&#x636E;&#x5230;&#x663E;&#x5361;"><a name="1-&#x4E0A;&#x4F20;rgb&#x6570;&#x636E;&#x5230;&#x663E;&#x5361;" class="anchor-navigation-ex-anchor" href="#1-&#x4E0A;&#x4F20;rgb&#x6570;&#x636E;&#x5230;&#x663E;&#x5361;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4E0A;&#x4F20;RGB&#x6570;&#x636E;&#x5230;&#x663E;&#x5361;</h3>
+<p>&#x5728; <code>texture2d.h</code> &#x4E2D;&#xFF0C;&#x6DFB;&#x52A0;&#x6210;&#x5458;&#x53D8;&#x91CF;<code>gl_texture_id_</code>&#x5B58;&#x50A8;GPU&#x521B;&#x5EFA;&#x7EB9;&#x7406;&#x7684;&#x552F;&#x4E00;ID&#x3002;</p>
+<pre><code class="lang-c++">GLuint gl_texture_id_;<span class="hljs-comment">//&#x7EB9;&#x7406;ID</span>
+</code></pre>
+<p>&#x89E3;&#x6790;&#x56FE;&#x7247;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x5C06;&#x56FE;&#x7247;RGB&#x6570;&#x636E;&#x4E0A;&#x4F20;&#x5230;GPU&#x3002;</p>
+<pre><code class="lang-c++">Texture2D* Texture2D::LoadFromFile(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; image_file_path)
+{
+    Texture2D* texture2d=<span class="hljs-keyword">new</span> Texture2D();
+
+    stbi_set_flip_vertically_on_load(<span class="hljs-literal">true</span>);<span class="hljs-comment">//&#x7FFB;&#x8F6C;&#x56FE;&#x7247;&#xFF0C;&#x89E3;&#x6790;&#x51FA;&#x6765;&#x7684;&#x56FE;&#x7247;&#x6570;&#x636E;&#x4ECE;&#x5DE6;&#x4E0B;&#x89D2;&#x5F00;&#x59CB;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;OpenGL&#x7684;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x8D77;&#x59CB;&#x70B9;&#x4E3A;&#x5DE6;&#x4E0B;&#x89D2;&#x3002;</span>
+    <span class="hljs-keyword">int</span> channels_in_file;<span class="hljs-comment">//&#x901A;&#x9053;&#x6570;</span>
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>* data = stbi_load(image_file_path.c_str(), &amp;(texture2d-&gt;width_), &amp;(texture2d-&gt;height_), &amp;channels_in_file, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">if</span> (data!= <span class="hljs-literal">nullptr</span>)
+    {
+        <span class="hljs-comment">//&#x6839;&#x636E;&#x989C;&#x8272;&#x901A;&#x9053;&#x6570;&#xFF0C;&#x5224;&#x65AD;&#x989C;&#x8272;&#x683C;&#x5F0F;&#x3002;</span>
+        ......
+    }
+
+    <span class="hljs-comment">//1. &#x901A;&#x77E5;&#x663E;&#x5361;&#x521B;&#x5EFA;&#x7EB9;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD4;&#x56DE;&#x53E5;&#x67C4;;</span>
+    glGenTextures(<span class="hljs-number">1</span>, &amp;(texture2d-&gt;gl_texture_id_));
+
+    <span class="hljs-comment">//2. &#x5C06;&#x7EB9;&#x7406;&#x7ED1;&#x5B9A;&#x5230;&#x7279;&#x5B9A;&#x7EB9;&#x7406;&#x76EE;&#x6807;;</span>
+    glBindTexture(GL_TEXTURE_2D, texture2d-&gt;gl_texture_id_);
+
+    <span class="hljs-comment">//3. &#x5C06;&#x56FE;&#x7247;rgb&#x6570;&#x636E;&#x4E0A;&#x4F20;&#x5230;GPU;</span>
+    glTexImage2D(GL_TEXTURE_2D, <span class="hljs-number">0</span>, GL_RGB, texture2d-&gt;width_, texture2d-&gt;height_, <span class="hljs-number">0</span>, texture2d-&gt;gl_texture_format_, GL_UNSIGNED_BYTE, data);
+
+    <span class="hljs-comment">//4. &#x6307;&#x5B9A;&#x653E;&#x5927;&#xFF0C;&#x7F29;&#x5C0F;&#x6EE4;&#x6CE2;&#x65B9;&#x5F0F;&#xFF0C;&#x7EBF;&#x6027;&#x6EE4;&#x6CE2;&#xFF0C;&#x5373;&#x653E;&#x5927;&#x7F29;&#x5C0F;&#x7684;&#x63D2;&#x503C;&#x65B9;&#x5F0F;;</span>
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+    <span class="hljs-comment">//&#x91CA;&#x653E;&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x5185;&#x5B58;</span>
+    stbi_image_free(data);
+
+    <span class="hljs-keyword">return</span> texture2d;
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#xFF0C;RGB&#x6570;&#x636E;&#x5C31;&#x4E0A;&#x4F20;&#x5230;&#x663E;&#x5361;&#x4E2D;&#x4E86;&#x3002;
+&#x6570;&#x636E;&#x4E0A;&#x4F20;&#x540E;&#xFF0C;&#x8FD4;&#x56DE;&#x7EB9;&#x7406;&#x53E5;&#x67C4;&#x4F9B;&#x540E;&#x7EED;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6765;&#x770B;&#x770B;&#x5728;Shader&#x4E2D;&#x5982;&#x4F55;&#x4ECE;&#x7EB9;&#x7406;&#x4E0A;&#x83B7;&#x53D6;&#x989C;&#x8272;&#x6570;&#x636E;&#x3002;</p>
+<h3 id="2-shader&#x4E2D;&#x4F7F;&#x7528;&#x7EB9;&#x7406;"><a name="2-shader&#x4E2D;&#x4F7F;&#x7528;&#x7EB9;&#x7406;" class="anchor-navigation-ex-anchor" href="#2-shader&#x4E2D;&#x4F7F;&#x7528;&#x7EB9;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>2. Shader&#x4E2D;&#x4F7F;&#x7528;&#x7EB9;&#x7406;</h3>
+<p>&#x5728;&#x7247;&#x6BB5;Shader&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;GLSL&#x63D0;&#x4F9B;&#x51FD;&#x6570; <code>texture</code> &#xFF0C;&#x5728;&#x7EB9;&#x7406;&#x7684;&#x6307;&#x5B9A;&#x5750;&#x6807;&#x4E0A;&#xFF0C;&#x53D6;&#x51FA;&#x989C;&#x8272;&#x503C;&#x3002;</p>
+<pre><code>gvec4  texture(gsampler{2,3}D sampler, vec{2,3} P [, float bias]); 
+</code></pre><p>&#x53C2;&#x6570;sampler&#x5C31;&#x662F;&#x7EB9;&#x7406;&#x6570;&#x636E;&#x3002;
+&#x53C2;&#x6570;p&#x5C31;&#x662F;UV&#x5750;&#x6807;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x5C31;&#x662F;&#x5B8C;&#x6574;&#x7684;&#x7247;&#x6BB5;Shader&#x3002;</p>
+<pre><code class="lang-glsl"><span class="hljs-meta">#version 330</span>
+<span class="hljs-keyword">uniform</span> <span class="hljs-type">sampler2D</span> u_diffuse_texture;
+<span class="hljs-keyword">in</span> <span class="hljs-type">vec4</span> v_color;
+<span class="hljs-keyword">in</span> <span class="hljs-type">vec2</span> v_uv;
+<span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">0</span>) <span class="hljs-keyword">out</span> <span class="hljs-type">vec4</span> o_fragColor;
+<span class="hljs-type">void</span> main()
+{
+    o_fragColor = <span class="hljs-built_in">texture</span>(u_diffuse_texture,v_uv);
+};
+</code></pre>
+<p>&#x4E3B;&#x8981;&#x662F;&#x8C03;&#x7528;<code>texture</code>&#x51FD;&#x6570;&#xFF0C;&#x4ECE;&#x7EB9;&#x7406; <code>u_diffuse_texture</code> &#x4E2D;&#xFF0C;&#x4EE5; <code>v_uv</code> &#x4E3A;UV&#x5750;&#x6807;&#xFF0C;&#x53D6;&#x51FA;&#x989C;&#x8272;&#x503C;&#xFF0C;&#x8D4B;&#x503C;&#x7ED9; <code>o_fragColor</code>&#x4F5C;&#x4E3A;&#x989C;&#x8272;&#x8F93;&#x51FA;&#x3002;</p>
+<p>UV&#x5750;&#x6807;&#xFF0C;&#x5728; <code>5.1 &#x989C;&#x8272;&#x548C;&#x8D34;&#x56FE;</code> &#x8FD9;&#x4E00;&#x8282;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x8FC7;&#xFF0C;&#x6CE8;&#x610F;&#x770B;&#x4E0A;&#x9762;&#x7684;&#x7247;&#x6BB5;Shader&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-glsl"><span class="hljs-keyword">in</span> <span class="hljs-type">vec2</span> v_uv;
+</code></pre>
+<p>&#x53D8;&#x91CF;<code>v_uv</code>&#x88AB; <code>in</code> &#x4FEE;&#x9970;&#xFF0C;&#x8BF4;&#x660E;UV&#x5750;&#x6807;&#x662F;&#x4ECE;&#x9876;&#x70B9;Shader&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#xFF0C;&#x6570;&#x636E;&#x7ECF;&#x8FC7;&#x63D2;&#x503C;&#x3002;</p>
+<p>&#x9876;&#x70B9;Shader&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-glsl"><span class="hljs-meta">#version 330</span>
+
+<span class="hljs-keyword">uniform</span> <span class="hljs-type">mat4</span> u_mvp;
+
+<span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">0</span>) <span class="hljs-keyword">in</span>  <span class="hljs-type">vec3</span> a_pos;
+<span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">1</span>) <span class="hljs-keyword">in</span>  <span class="hljs-type">vec4</span> a_color;
+<span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">2</span>) <span class="hljs-keyword">in</span>  <span class="hljs-type">vec2</span> a_uv;
+
+<span class="hljs-keyword">out</span> <span class="hljs-type">vec4</span> v_color;
+<span class="hljs-keyword">out</span> <span class="hljs-type">vec2</span> v_uv;
+
+<span class="hljs-type">void</span> main()
+{
+    <span class="hljs-built_in">gl_Position</span> = u_mvp * <span class="hljs-type">vec4</span>(a_pos, <span class="hljs-number">1.0</span>);
+    v_color = a_color;
+    v_uv = a_uv;
+};
+</code></pre>
+<p>&#x4ECB;&#x7ECD;&#x5B8C;&#x4E86;&#x7EB9;&#x7406;&#x7684;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x4F20;&#x5165;UV&#x5750;&#x6807;&#x548C;&#x7EB9;&#x7406;&#x5230;Shader&#x4E2D;&#x8FDB;&#x884C;&#x6E32;&#x67D3;&#x3002;</p>
+<h3 id="3-&#x4E0A;&#x4F20;uv&#x5750;&#x6807;"><a name="3-&#x4E0A;&#x4F20;uv&#x5750;&#x6807;" class="anchor-navigation-ex-anchor" href="#3-&#x4E0A;&#x4F20;uv&#x5750;&#x6807;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x4E0A;&#x4F20;UV&#x5750;&#x6807;</h3>
+<p>UV&#x5750;&#x6807;&#x548C;&#x9876;&#x70B9;&#x5750;&#x6807;&#x4E5F;&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#xFF0C;&#x4E14;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x662F;[0,1]&#x3002;
+&#x7ACB;&#x65B9;&#x4F53;&#x6709;6&#x4E2A;&#x9762;&#xFF0C;&#x6BCF;&#x4E2A;&#x9762;2&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#xFF0C;&#x5BF9;&#x5E94;UV&#x5750;&#x6807;&#x6570;&#x636E;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> glm::vec2 kUvs[<span class="hljs-number">36</span>] =
+{
+        <span class="hljs-comment">//Front</span>
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        <span class="hljs-comment">//back</span>
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        <span class="hljs-comment">//left</span>
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        <span class="hljs-comment">//right</span>
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        <span class="hljs-comment">//up</span>
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        <span class="hljs-comment">//down</span>
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">0.0f</span>),
+        glm::vec2(<span class="hljs-number">1.0f</span>, <span class="hljs-number">1.0f</span>),
+        glm::vec2(<span class="hljs-number">0.0f</span>, <span class="hljs-number">1.0f</span>),
+};
+</code></pre>
+<p>&#x7136;&#x540E;&#x83B7;&#x53D6;&#x9876;&#x70B9;Shader&#x4E2D;&#x7684;UV&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-c++">a_uv_location = glGetAttribLocation(program, <span class="hljs-string">&quot;a_uv&quot;</span>);
+</code></pre>
+<p>&#x542F;&#x7528;&#x9876;&#x70B9;Shader&#x5C5E;&#x6027;(a_uv)&#xFF1A;</p>
+<pre><code class="lang-c++">glEnableVertexAttribArray(a_uv_location);
+</code></pre>
+<p>&#x8054;&#x9876;&#x70B9;UV&#x6570;&#x636E;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">//&#x5173;&#x8054;&#x9876;&#x70B9;UV&#x6570;&#x636E;</span>
+glVertexAttribPointer(a_uv_location, <span class="hljs-number">2</span>, GL_FLOAT, <span class="hljs-literal">false</span>, <span class="hljs-keyword">sizeof</span>(glm::vec2), kUvs);
+</code></pre>
+<h3 id="5&#x6307;&#x5B9A;&#x7EB9;&#x7406;&#x6E32;&#x67D3;"><a name="5&#x6307;&#x5B9A;&#x7EB9;&#x7406;&#x6E32;&#x67D3;" class="anchor-navigation-ex-anchor" href="#5&#x6307;&#x5B9A;&#x7EB9;&#x7406;&#x6E32;&#x67D3;"><i class="fa fa-link" aria-hidden="true"></i></a>5.&#x6307;&#x5B9A;&#x7EB9;&#x7406;&#x6E32;&#x67D3;</h3>
+<p>&#x4E0A;&#x9762;&#x5DF2;&#x7ECF;&#x4E0A;&#x4F20;&#x4E86;&#x56FE;&#x7247;RGB&#x5230;GPU&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x58F0;&#x79F0;&#x4E86;&#x7EB9;&#x7406;&#xFF0C;&#x62FF;&#x5230;&#x4E86;&#x7EB9;&#x7406;&#x53E5;&#x67C4;&#x3002;&#x4F46;&#x662F;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x5C06;&#x7EB9;&#x7406;&#x53E5;&#x67C4;&#x4F20;&#x5165;&#x5230;Shader&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x6765;&#x505A;&#x8FD9;&#x4E2A;&#x4E8B;&#x60C5;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">//&#x6307;&#x5B9A;GPU&#x7A0B;&#x5E8F;(&#x5C31;&#x662F;&#x6307;&#x5B9A;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x3001;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;)</span>
+glUseProgram(program);
+    ......
+
+    <span class="hljs-comment">//&#x8D34;&#x56FE;&#x8BBE;&#x7F6E;</span>
+    <span class="hljs-comment">//&#x6FC0;&#x6D3B;&#x7EB9;&#x7406;&#x5355;&#x5143;0</span>
+    glActiveTexture(GL_TEXTURE0);
+    <span class="hljs-comment">//&#x5C06;&#x52A0;&#x8F7D;&#x7684;&#x56FE;&#x7247;&#x7EB9;&#x7406;&#x53E5;&#x67C4;&#xFF0C;&#x7ED1;&#x5B9A;&#x5230;&#x7EB9;&#x7406;&#x5355;&#x5143;0&#x7684;Texture2D&#x4E0A;&#x3002;</span>
+    glBindTexture(GL_TEXTURE_2D,texture2d-&gt;gl_texture_id_);
+    <span class="hljs-comment">//&#x8BBE;&#x7F6E;Shader&#x7A0B;&#x5E8F;&#x4ECE;&#x7EB9;&#x7406;&#x5355;&#x5143;0&#x8BFB;&#x53D6;&#x989C;&#x8272;&#x6570;&#x636E;</span>
+    glUniform1i(u_diffuse_texture_location,GL_TEXTURE0);
+
+    <span class="hljs-comment">//void glDrawArrays(GLenum mode,GLint first,GLsizei count);</span>
+    glDrawArrays(GL_TRIANGLES, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>*<span class="hljs-number">6</span>);<span class="hljs-comment">//&#x8868;&#x793A;&#x4ECE;&#x7B2C;0&#x4E2A;&#x9876;&#x70B9;&#x5F00;&#x59CB;&#x753B;&#xFF0C;&#x603B;&#x5171;&#x753B;6&#x4E2A;&#x9762;&#xFF0C;&#x6BCF;&#x4E2A;&#x9762;6&#x4E2A;&#x9876;&#x70B9;&#x3002;</span>
+
+glUseProgram(<span class="hljs-number">-1</span>);
+</code></pre>
+<p>&#x4EE3;&#x7801;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4E0D;&#x8FC7;&#x903B;&#x8F91;&#x5F88;&#x7ED5;&#xFF0C;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x76F4;&#x63A5;&#x5C06;&#x7EB9;&#x7406;&#x53E5;&#x67C4;&#x6307;&#x5B9A;&#x7ED9;&#x7247;&#x6BB5;Shader&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;<code>&#x7EB9;&#x7406;&#x5355;&#x5143;</code>&#x8FDB;&#x884C;&#x4E2D;&#x8F6C;&#x3002;</p>
+<pre><code>&#x7EB9;&#x7406;&#x5355;&#x5143;&#x53EF;&#x4EE5;&#x770B;&#x505A;&#x662F;&#x7EB9;&#x7406;&#x53E5;&#x67C4;&#x7684;&#x5BB9;&#x5668;&#x3002;
+</code></pre><p>&#x9996;&#x5148;&#x6FC0;&#x6D3B;&#x7EB9;&#x7406;&#x5355;&#x5143;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x7EB9;&#x7406;&#x53E5;&#x67C4;&#x7ED1;&#x5B9A;&#x5230;&#x7EB9;&#x7406;&#x5355;&#x5143;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x7EB9;&#x7406;&#x5355;&#x5143;&#x6307;&#x5B9A;&#x7ED9;&#x7247;&#x6BB5;Shader&#x3002;</p>
+<p>&#x6700;&#x7EC8;&#x8FD0;&#x884C;&#x6548;&#x679C;&#xFF1A;
+<a href="../../imgs/texture_make_beautiful/draw_cube_texture/draw_cube_urban.gif" data-lightbox="4016f5da-44e3-4ef2-b925-2cfa30306f98" data-title=""><img src="../../imgs/texture_make_beautiful/draw_cube_texture/draw_cube_urban.gif" alt=""></a> </p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; captainchen all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
+2021-04-26 14:49:02
+</span></footer></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="5.4 使用stb_image解析图片.html" class="navigation navigation-prev " aria-label="Previous page: 5.4 使用stb_image解析图片">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="5.6 压缩纹理.html" class="navigation navigation-next " aria-label="Next page: 5.6 压缩纹理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5.5 绘制带贴图的立方体盒子","level":"2.6.5","depth":2,"next":{"title":"5.6 压缩纹理","level":"2.6.6","depth":2,"path":"pages/5. 绘制贴图/5.6 压缩纹理.md","ref":"pages/5. 绘制贴图/5.6 压缩纹理.md","articles":[]},"previous":{"title":"5.4 使用stb_image解析图片","level":"2.6.4","depth":2,"path":"pages/5. 绘制贴图/5.4 使用stb_image解析图片.md","ref":"pages/5. 绘制贴图/5.4 使用stb_image解析图片.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","tbfed-pagefooter","splitter","lightbox","anchor-navigation-ex","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy captainchen","modify_format":"YYYY-MM-DD HH:mm:ss"},"livereload":{},"splitter":{},"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"captainchen","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"游戏引擎浅入浅出","gitbook":"*"},"file":{"path":"pages/5. 绘制贴图/5.5 绘制带贴图的立方体盒子.md","mtime":"2021-04-26T06:49:02.735Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-28T09:17:39.205Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,834 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4.3 顶点着色器 · 游戏引擎浅入浅出</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="captainchen">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.4 片段着色器.html" />
+    
+    
+    <link rel="prev" href="4.2 Unity Shader和OpenGL Shader.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">目录</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../前言.html">
+            
+                <a href="../前言.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1. 游戏引擎框架介绍/1. 游戏引擎框架介绍.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1. 游戏引擎框架介绍.html">
+            
+                    
+                    1. 游戏引擎框架介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../1. 游戏引擎框架介绍/1.1 暗中观察unity.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1.1 暗中观察unity.html">
+            
+                    
+                    1.1 暗中观察unity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../1. 游戏引擎框架介绍/1.2 游戏引擎组成.html">
+            
+                <a href="../1. 游戏引擎框架介绍/1.2 游戏引擎组成.html">
+            
+                    
+                    1.2 游戏引擎组成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../2. Opengl开发环境搭建/2. Opengl开发环境搭建.html">
+            
+                <a href="../2. Opengl开发环境搭建/2. Opengl开发环境搭建.html">
+            
+                    
+                    2. Opengl开发环境搭建
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../2. Opengl开发环境搭建/2.1 Opengl到底是什么.html">
+            
+                <a href="../2. Opengl开发环境搭建/2.1 Opengl到底是什么.html">
+            
+                    
+                    2.1 Opengl到底是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../2. Opengl开发环境搭建/2.2 搭建Opengl开发环境.html">
+            
+                <a href="../2. Opengl开发环境搭建/2.2 搭建Opengl开发环境.html">
+            
+                    
+                    2.2 搭建Opengl开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../3. 绘制简单图形/3. 绘制简单图形.html">
+            
+                <a href="../3. 绘制简单图形/3. 绘制简单图形.html">
+            
+                    
+                    3. 绘制简单图形
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../3. 绘制简单图形/3.1 画个三角形.html">
+            
+                <a href="../3. 绘制简单图形/3.1 画个三角形.html">
+            
+                    
+                    3.1 画个三角形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../3. 绘制简单图形/3.2 画个正方形.html">
+            
+                <a href="../3. 绘制简单图形/3.2 画个正方形.html">
+            
+                    
+                    3.2 画个正方形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../3. 绘制简单图形/3.3 画个立方体.html">
+            
+                <a href="../3. 绘制简单图形/3.3 画个立方体.html">
+            
+                    
+                    3.3 画个立方体
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="4. 着色器.html">
+            
+                <a href="4. 着色器.html">
+            
+                    
+                    4. 着色器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="4.1 着色器是什么.html">
+            
+                <a href="4.1 着色器是什么.html">
+            
+                    
+                    4.1 着色器是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="4.2 Unity Shader和OpenGL Shader.html">
+            
+                <a href="4.2 Unity Shader和OpenGL Shader.html">
+            
+                    
+                    4.2 Unity Shader和OpenGL Shader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5.3" data-path="4.3 顶点着色器.html">
+            
+                <a href="4.3 顶点着色器.html">
+            
+                    
+                    4.3 顶点着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="4.4 片段着色器.html">
+            
+                <a href="4.4 片段着色器.html">
+            
+                    
+                    4.4 片段着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../5. 绘制贴图/5. 绘制贴图.html">
+            
+                <a href="../5. 绘制贴图/5. 绘制贴图.html">
+            
+                    
+                    5. 绘制贴图
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="../5. 绘制贴图/5.1 颜色和贴图.html">
+            
+                <a href="../5. 绘制贴图/5.1 颜色和贴图.html">
+            
+                    
+                    5.1 颜色和贴图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.2" data-path="../5. 绘制贴图/5.2 贴图文件介绍.html">
+            
+                <a href="../5. 绘制贴图/5.2 贴图文件介绍.html">
+            
+                    
+                    5.2 贴图文件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.3" data-path="../5. 绘制贴图/5.3 CPU与GPU的通信方式.html">
+            
+                <a href="../5. 绘制贴图/5.3 CPU与GPU的通信方式.html">
+            
+                    
+                    5.3 CPU与GPU的通信方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.4" data-path="../5. 绘制贴图/5.4 使用stb_image解析图片.html">
+            
+                <a href="../5. 绘制贴图/5.4 使用stb_image解析图片.html">
+            
+                    
+                    5.4 使用stb_image解析图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.5" data-path="../5. 绘制贴图/5.5 绘制带贴图的立方体盒子.html">
+            
+                <a href="../5. 绘制贴图/5.5 绘制带贴图的立方体盒子.html">
+            
+                    
+                    5.5 绘制带贴图的立方体盒子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.6" data-path="../5. 绘制贴图/5.6 压缩纹理.html">
+            
+                <a href="../5. 绘制贴图/5.6 压缩纹理.html">
+            
+                    
+                    5.6 压缩纹理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.7" data-path="../5. 绘制贴图/5.7 图片压缩工具.html">
+            
+                <a href="../5. 绘制贴图/5.7 图片压缩工具.html">
+            
+                    
+                    5.7 图片压缩工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.8" data-path="../5. 绘制贴图/5.8 使用压缩纹理.html">
+            
+                <a href="../5. 绘制贴图/5.8 使用压缩纹理.html">
+            
+                    
+                    5.8 使用压缩纹理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../6. 索引与缓冲区对象/6. 缓冲区对象.html">
+            
+                <a href="../6. 索引与缓冲区对象/6. 缓冲区对象.html">
+            
+                    
+                    6. 缓冲区对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.7.1" data-path="../6. 索引与缓冲区对象/6.1 顶点索引.html">
+            
+                <a href="../6. 索引与缓冲区对象/6.1 顶点索引.html">
+            
+                    
+                    6.1 顶点索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7.2" data-path="../6. 索引与缓冲区对象/6.2 缓冲区对象.html">
+            
+                <a href="../6. 索引与缓冲区对象/6.2 缓冲区对象.html">
+            
+                    
+                    6.2 缓冲区对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../7. Mesh和材质/7. Mesh和材质.html">
+            
+                <a href="../7. Mesh和材质/7. Mesh和材质.html">
+            
+                    
+                    7. Mesh和材质
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.8.1" data-path="../7. Mesh和材质/7.1 导出Mesh文件.html">
+            
+                <a href="../7. Mesh和材质/7.1 导出Mesh文件.html">
+            
+                    
+                    7.1 导出Mesh文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.2" data-path="../7. Mesh和材质/7.2 使用Mesh文件.html">
+            
+                <a href="../7. Mesh和材质/7.2 使用Mesh文件.html">
+            
+                    
+                    7.2 使用Mesh文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.3" data-path="../7. Mesh和材质/7.3 Shader文件创建与使用.html">
+            
+                <a href="../7. Mesh和材质/7.3 Shader文件创建与使用.html">
+            
+                    
+                    7.3 Shader文件创建与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >4.3 顶点着色器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#43-&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;"><b></b>4.3 &#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;</a></li><ul><li><span class="title-icon "></span><a href="#1&#x7B80;&#x5355;&#x7684;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;"><b></b>1.&#x7B80;&#x5355;&#x7684;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;</a></li><li><span class="title-icon "></span><a href="#2&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;"><b></b>2.&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;</a></li></ul></ul></ul></div><h2 id="43-&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;"><a name="43-&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;" class="anchor-navigation-ex-anchor" href="#43-&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>4.3 &#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;</h2>
+<p>&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x7684;&#x529F;&#x80FD;&#x5C31;&#x662F;&#xFF1A;<font color="green">&#x5BF9;&#x8F93;&#x5165;&#x7684;&#x9876;&#x70B9;&#x5750;&#x6807;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8F93;&#x51FA;&#x3002;</font></p>
+<h3 id="1&#x7B80;&#x5355;&#x7684;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;"><a name="1&#x7B80;&#x5355;&#x7684;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;" class="anchor-navigation-ex-anchor" href="#1&#x7B80;&#x5355;&#x7684;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>1.&#x7B80;&#x5355;&#x7684;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;</h3>
+<p>&#x6211;&#x4EEC;&#x6765;&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#xFF0C;&#x5B9E;&#x73B0;&#x4E0A;&#x9762;&#x6240;&#x8BF4;&#x529F;&#x80FD;&#x7684;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x3002;</p>
+<pre><code class="lang-glsl"><span class="hljs-meta">#version 330</span>
+
+<span class="hljs-keyword">uniform</span> <span class="hljs-type">mat4</span> u_mvp;
+
+<span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">0</span>) <span class="hljs-keyword">in</span>  <span class="hljs-type">vec3</span> a_pos;
+<span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">1</span>) <span class="hljs-keyword">in</span>  <span class="hljs-type">vec4</span> a_color;
+
+<span class="hljs-keyword">out</span> <span class="hljs-type">vec4</span> v_color;
+
+<span class="hljs-type">void</span> main()
+{
+    <span class="hljs-built_in">gl_Position</span> = u_mvp * <span class="hljs-type">vec4</span>(a_pos, <span class="hljs-number">1.0</span>);
+    v_color = a_color;
+};
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7740;&#x8272;&#x5668;&#xFF0C;&#x5C06;&#x8F93;&#x5165;&#x7684;vec3&#x7684;&#x9876;&#x70B9;&#x5750;&#x6807;&#xFF0C;&#x8F6C;&#x6362;&#x4E3A;vec4&#x540E;&#x8F93;&#x51FA;&#x3002;</p>
+<h3 id="2&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;"><a name="2&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#2&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x8BED;&#x6CD5;</h3>
+<h4 id="21-&#x7248;&#x672C;&#x9650;&#x5B9A;"><a name="21-&#x7248;&#x672C;&#x9650;&#x5B9A;" class="anchor-navigation-ex-anchor" href="#21-&#x7248;&#x672C;&#x9650;&#x5B9A;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 &#x7248;&#x672C;&#x9650;&#x5B9A;</h4>
+<pre><code class="lang-glsl"><span class="hljs-meta">#version 330</span>
+</code></pre>
+<p>&#x7B2C;&#x4E00;&#x884C;&#x8868;&#x793A;&#x5F53;&#x524D;Shader&#xFF0C;&#x9700;&#x8981;&#x7684;GLSL(OpenGL&#x7740;&#x8272;&#x5668;&#x8BED;&#x8A00;)&#x6700;&#x4F4E;&#x7248;&#x672C;&#x3002;
+&#x5982;&#x679C;&#x4F60;&#x7684;&#x7535;&#x8111;&#xFF0C;&#x652F;&#x6301;&#x7684;OpenGL&#xFF0C;&#x8FBE;&#x4E0D;&#x5230;Shader&#x8981;&#x6C42;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;Shader&#x5C31;&#x65E0;&#x6548;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x4E00;&#x822C;&#x5728;&#x68C0;&#x6D4B;&#x8F6F;&#x4EF6;&#x4E0A;&#x53EA;&#x80FD;&#x770B;&#x5230;OpenGL&#x7248;&#x672C;&#xFF0C;&#x770B;&#x4E0D;&#x5230;GLSL&#x7248;&#x672C;&#xFF0C;&#x8FD9;&#x91CC;&#x63D0;&#x4F9B;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x8868;&#x683C;&#x3002;</p>
+<table>
+<tbody><tr><td bgcolor="AliceBlue"><b>OpenGL Version</b></td><td bgcolor="AliceBlue"><b>GLSL Version</b></td></tr>
+<tr><td>2.0</td><td>1.10</td></tr>
+<tr><td>2.1</td><td>1.20</td></tr>
+<tr><td>3.0</td><td>1.30</td></tr>
+<tr><td>3.1</td><td>1.40</td></tr>
+<tr><td>3.2</td><td>1.50</td></tr>
+<tr><td>&gt;3.3</td><td>=OpenGL Version</td></tr>
+</tbody></table>
+
+<p>&#x6839;&#x636E;&#x8868;&#x683C;&#xFF0C;&#x7B2C;&#x4E00;&#x884C;&#x7684; 330 &#x5BF9;&#x5E94;OpenGL 3.3&#xFF0C;&#x7535;&#x8111;&#x4E0A;&#x81F3;&#x5C11;&#x9700;&#x8981;&#x652F;&#x6301;OpenGL 3.3&#x624D;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;</p>
+<h4 id="22-&#x7EDF;&#x4E00;&#x53D8;&#x91CF;"><a name="22-&#x7EDF;&#x4E00;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#22-&#x7EDF;&#x4E00;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x7EDF;&#x4E00;&#x53D8;&#x91CF;</h4>
+<pre><code class="lang-glsl"><span class="hljs-keyword">uniform</span> <span class="hljs-type">mat4</span> u_mvp;
+</code></pre>
+<p><code>uniform</code> &#x7528;&#x6765;&#x4FEE;&#x9970;&#x7EDF;&#x4E00;&#x53D8;&#x91CF;&#x3002;</p>
+<p>GPU&#x662F;&#x5E76;&#x884C;&#x7684;&#xFF0C;Shader&#x662F;&#x6267;&#x884C;&#x5728;GPU&#x4E0A;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7ED8;&#x5236;3&#x4E2A;&#x9876;&#x70B9;&#xFF0C;GPU&#x5C06;3&#x4E2A;&#x9876;&#x70B9;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x644A;&#x5230;3&#x4E2A;GPU&#x903B;&#x8F91;&#x5355;&#x5143;&#x5E76;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x6BCF;&#x4E2A;&#x903B;&#x8F91;&#x5355;&#x5143;&#x5904;&#x7406;&#x7684;&#x4E0D;&#x540C;&#x7684;&#x9876;&#x70B9;&#x5750;&#x6807;&#x6570;&#x636E;&#xFF0C;&#x79F0;&#x4E4B;&#x4E3A;&#x5C5E;&#x6027;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x903B;&#x8F91;&#x5355;&#x5143;&#x4E5F;&#x4F1A;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x4E9B;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x79F0;&#x4E4B;&#x4E3A;&#x7EDF;&#x4E00;&#x53D8;&#x91CF;&#x3002;</p>
+<h4 id="23-&#x5C5E;&#x6027;&#x53D8;&#x91CF;"><a name="23-&#x5C5E;&#x6027;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#23-&#x5C5E;&#x6027;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 &#x5C5E;&#x6027;&#x53D8;&#x91CF;</h4>
+<pre><code class="lang-glsl"><span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">0</span>) <span class="hljs-keyword">in</span>  <span class="hljs-type">vec3</span> a_pos;
+<span class="hljs-keyword">layout</span>(<span class="hljs-keyword">location</span> = <span class="hljs-number">1</span>) <span class="hljs-keyword">in</span>  <span class="hljs-type">vec4</span> a_color;
+</code></pre>
+<p>&#x5C5E;&#x6027;&#x53D8;&#x91CF;&#xFF0C;&#x4E0A;&#x9762;&#x5DF2;&#x7ECF;&#x4ECB;&#x7ECD;&#x4E86;&#x3002;</p>
+<p><code>vec3 vPos</code> &#x8868;&#x793A;&#x5B9A;&#x4E49;&#x4E86; <code>vec3</code> &#x7684;&#x53D8;&#x91CF; <code>vPos</code>&#x3002;</p>
+<p><code>in</code> &#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x6BCF;&#x6267;&#x884C;&#x4E00;&#x6B21;Shader&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x88AB;&#x8D4B;&#x503C;&#x3002;</p>
+<p><code>layout(location = 0)</code> &#x8868;&#x793A;&#x53D8;&#x91CF;&#x7684;&#x5E8F;&#x53F7;&#x662F;0&#x3002;</p>
+<h4 id="24-&#x8F93;&#x51FA;&#x53D8;&#x91CF;"><a name="24-&#x8F93;&#x51FA;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#24-&#x8F93;&#x51FA;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4 &#x8F93;&#x51FA;&#x53D8;&#x91CF;</h4>
+<pre><code class="lang-glsl"><span class="hljs-keyword">out</span> <span class="hljs-type">vec4</span> v_color;
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x53D8;&#x91CF;&#x7531;<code>out</code>&#x5173;&#x952E;&#x5B57;&#x4FEE;&#x9970;&#xFF0C;<font color="red">&#x7528;&#x4E8E;&#x4ECE;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#xFF0C;&#x4F20;&#x9012;&#x6570;&#x636E;&#x5230;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;</font>&#x3002;</p>
+<h4 id="25-&#x51FD;&#x6570;&#x903B;&#x8F91;"><a name="25-&#x51FD;&#x6570;&#x903B;&#x8F91;" class="anchor-navigation-ex-anchor" href="#25-&#x51FD;&#x6570;&#x903B;&#x8F91;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5 &#x51FD;&#x6570;&#x903B;&#x8F91;</h4>
+<pre><code class="lang-glsl"><span class="hljs-type">void</span> main()
+{
+    <span class="hljs-built_in">gl_Position</span> = <span class="hljs-type">vec4</span>(vPos, <span class="hljs-number">1.0</span>);
+}
+</code></pre>
+<p>&#x6BCF;&#x4E2A;Shader&#x90FD;&#x6709;&#x5165;&#x53E3;&#x51FD;&#x6570; <code>main()</code>&#xFF0C;&#x9876;&#x70B9;Shader&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x5C31;&#x662F;&#xFF1A;<font color="green">&#x8BA1;&#x7B97;&#x5750;&#x6807;</font>&#x3002;
+&#x5F97;&#x5230;&#x5750;&#x6807;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x540E;&#xFF0C;&#x4F20;&#x7ED9;&#x5185;&#x7F6E;&#x53D8;&#x91CF; <code>gl_Position</code>&#x3002;</p>
+<p>GPU&#x62FF;&#x5230;<code>gl_Position</code>&#xFF0C;&#x6267;&#x884C;&#x88C1;&#x526A;&#x3002;</p>
+<pre><code>&#x53C2;&#x8003;&#x6587;&#x6863;&#xFF1A;
+Vertex Shader:
+https://www.khronos.org/opengl/wiki/Vertex_Shader#Inputs
+
+OPENGL ES 3.0&#x7F16;&#x7A0B;&#x6307;&#x5357; &#x7B2C;5&#x7AE0; OpenGL ES &#x7740;&#x8272;&#x8BED;&#x8A00;  
+</code></pre><footer class="page-footer"><span class="copyright">Copyright &#xA9; captainchen all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
+2021-04-02 11:26:42
+</span></footer></body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4.2 Unity Shader和OpenGL Shader.html" class="navigation navigation-prev " aria-label="Previous page: 4.2 Unity Shader和OpenGL Shader">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.4 片段着色器.html" class="navigation navigation-next " aria-label="Next page: 4.4 片段着色器">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4.3 顶点着色器","level":"2.5.3","depth":2,"next":{"title":"4.4 片段着色器","level":"2.5.4","depth":2,"path":"pages/4. 着色器/4.4 片段着色器.md","ref":"pages/4. 着色器/4.4 片段着色器.md","articles":[]},"previous":{"title":"4.2 Unity Shader和OpenGL Shader","level":"2.5.2","depth":2,"path":"pages/4. 着色器/4.2 Unity Shader和OpenGL Shader.md","ref":"pages/4. 着色器/4.2 Unity Shader和OpenGL Shader.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","tbfed-pagefooter","splitter","lightbox","anchor-navigation-ex","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy captainchen","modify_format":"YYYY-MM-DD HH:mm:ss"},"livereload":{},"splitter":{},"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"captainchen","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"游戏引擎浅入浅出","gitbook":"*"},"file":{"path":"pages/4. 着色器/4.3 顶点着色器.md","mtime":"2021-04-02T03:26:42.094Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-28T09:17:39.205Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
