@@ -638,14 +638,104 @@
                                 <section class="normal markdown-section">
                                 
                                 <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#73-shader&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E0E;&#x4F7F;&#x7528;"><b></b>7.3 Shader&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E0E;&#x4F7F;&#x7528;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x521B;&#x5EFA;shader&#x6587;&#x4EF6;"><b></b>1. &#x521B;&#x5EFA;Shader&#x6587;&#x4EF6;</a></li><li><span class="title-icon "></span><a href="#2-&#x52A0;&#x8F7D;shader&#x6587;&#x4EF6;"><b></b>2. &#x52A0;&#x8F7D;Shader&#x6587;&#x4EF6;</a></li></ul></ul></ul></div><h2 id="73-shader&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E0E;&#x4F7F;&#x7528;"><a name="73-shader&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E0E;&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#73-shader&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E0E;&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>7.3 Shader&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E0E;&#x4F7F;&#x7528;</h2>
-<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;Shader&#x5206;&#x4E3A;Vertex Shader(&#x9876;&#x70B9;Shader)&#x548C;Fragment Shader(&#x7247;&#x6BB5;Shader)&#xFF0C;&#x4E4B;&#x524D;&#x9879;&#x76EE;&#x7684;Shader&#x4EE3;&#x7801;&#x662F;&#x5199;&#x6B7B;&#x5728;<code>shader_source.h</code>&#xFF0C;&#x73B0;&#x5728;&#x5C31;&#x5C06;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x5B58;&#x653E;&#x5230;<code>.vs</code>&#x548C;<code>.fs</code>&#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
+<pre><code>CLion&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x4F4D;&#x4E8E; samples\mesh_and_material\use_shader_file
+</code></pre><p>&#x4E4B;&#x524D;&#x9879;&#x76EE;&#x7684;Shader&#x4EE3;&#x7801;&#x662F;&#x5199;&#x6B7B;&#x5728;<code>shader_source.h</code>&#xFF0C;&#x4E0D;&#x4FBF;&#x4E8E;&#x4FEE;&#x6539;&#x548C;&#x66F4;&#x65B0;&#x3002;
+Shader&#x5206;&#x4E3A;Vertex Shader(&#x9876;&#x70B9;Shader)&#x548C;Fragment Shader(&#x7247;&#x6BB5;Shader)&#xFF0C;&#x73B0;&#x5728;&#x5C31;&#x5C06;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x5B58;&#x653E;&#x5230;<code>.vs</code>&#x548C;<code>.fs</code>&#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
 <h3 id="1-&#x521B;&#x5EFA;shader&#x6587;&#x4EF6;"><a name="1-&#x521B;&#x5EFA;shader&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#1-&#x521B;&#x5EFA;shader&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x521B;&#x5EFA;Shader&#x6587;&#x4EF6;</h3>
 <p>&#x521B;&#x5EFA;<code>Unlit.vs</code> &#x548C; <code>Unlit.fs</code>&#xFF0C;&#x5C06;<code>shader_source.h</code>&#x4E2D;&#x7684;Shader&#x4EE3;&#x7801;&#x653E;&#x8FDB;&#x53BB;&#x3002;</p>
-<p><a href="../../imgs/mesh_and_material/use_shader_file/vs_and_fs_file.jpg" data-lightbox="6846f870-16a1-4c28-8ff2-da9c88ba9429" data-title=""><img src="../../imgs/mesh_and_material/use_shader_file/vs_and_fs_file.jpg" alt=""></a></p>
+<p><a href="../../imgs/mesh_and_material/use_shader_file/vs_and_fs_file.jpg" data-lightbox="5cc96a9a-02d8-4c62-b36f-36bf621f7ee5" data-title=""><img src="../../imgs/mesh_and_material/use_shader_file/vs_and_fs_file.jpg" alt=""></a></p>
 <h3 id="2-&#x52A0;&#x8F7D;shader&#x6587;&#x4EF6;"><a name="2-&#x52A0;&#x8F7D;shader&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#2-&#x52A0;&#x8F7D;shader&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x52A0;&#x8F7D;Shader&#x6587;&#x4EF6;</h3>
-<p>&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x52A0;&#x8F7D;Shader&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x7F16;&#x8BD1;&#x3001;&#x521B;&#x5EFA;Shader&#x7A0B;&#x5E8F;&#x3001;Link&#x3002;</p>
+<p>&#x521B;&#x5EFA;&#x7C7B; <code>Shader</code>&#x8D1F;&#x8D23;Shader&#x6587;&#x4EF6;&#x7684;&#x52A0;&#x8F7D;&#x3001;&#x7F16;&#x8BD1;&#x3001;&#x521B;&#x5EFA;Shader&#x7A0B;&#x5E8F;&#x3001;Link&#x3002;&#xFF0C;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x662F;<code>shader.h</code>&#x3002;</p>
+<h4 id="21-&#x52A0;&#x8F7D;shader&#x6587;&#x4EF6;"><a name="21-&#x52A0;&#x8F7D;shader&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#21-&#x52A0;&#x8F7D;shader&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 &#x52A0;&#x8F7D;Shader&#x6587;&#x4EF6;</h4>
+<p>&#x5728;&#x521B;&#x5EFA;Shader&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x4FDD;&#x8BC1;&#x9876;&#x70B9;Shader&#x3001;&#x7247;&#x6BB5;Shader&#x6587;&#x4EF6;&#x540D;&#x4E00;&#x81F4;&#xFF0C;&#x8FD9;&#x6837;&#x53EA;&#x8981;&#x7528;<code>Shader&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</code> &#x548C;&#x540E;&#x7F00;&#x62FC;&#x8D77;&#x6765;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x4ED6;&#x4EEC;&#x90FD;&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#x3002;</p>
+<pre><code class="lang-c++">//&#x52A0;&#x8F7D;Shader&#x6587;&#x4EF6;&#x5E76;&#x89E3;&#x6790;
+void Shader::Parse(string shader_name) {
+    shader_name_=shader_name;
+
+    //&#x7EC4;&#x88C5;&#x5B8C;&#x6574;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
+    string vertex_shader_file_path=shader_name+&quot;.vs&quot;;
+    string fragment_shader_file_path=shader_name+&quot;.fs&quot;;
+
+    //&#x8BFB;&#x53D6;&#x9876;&#x70B9;Shader&#x4EE3;&#x7801;
+    ifstream vertex_shader_input_file_stream(vertex_shader_file_path);
+    string vertex_shader_source((std::istreambuf_iterator&lt;char&gt;(vertex_shader_input_file_stream)),std::istreambuf_iterator&lt;char&gt;());
+    //&#x8BFB;&#x53D6;&#x7247;&#x6BB5;Shader&#x4EE3;&#x7801;
+    ifstream fragment_shader_input_file_stream(fragment_shader_file_path);
+    string fragment_shader_source((std::istreambuf_iterator&lt;char&gt;(fragment_shader_input_file_stream)),std::istreambuf_iterator&lt;char&gt;());
+
+    CreateGPUProgram(vertex_shader_source.c_str(), fragment_shader_source.c_str());
+}
+</code></pre>
+<h4 id="22-&#x521B;&#x5EFA;gpuprogram"><a name="22-&#x521B;&#x5EFA;gpuprogram" class="anchor-navigation-ex-anchor" href="#22-&#x521B;&#x5EFA;gpuprogram"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x521B;&#x5EFA;GPUProgram</h4>
+<p>&#x4E4B;&#x524D;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x521B;&#x5EFA;GPUProgram&#x7684;&#x4EE3;&#x7801;&#x5728;<code>main.cpp</code>&#x4E2D;&#xFF1A;
+<a href="../../imgs/mesh_and_material/use_shader_file/creategpuprogram_in_main_cpp.jpg" data-lightbox="f5c51c3b-65de-43cd-9b45-fc75aa0ff716" data-title=""><img src="../../imgs/mesh_and_material/use_shader_file/creategpuprogram_in_main_cpp.jpg" alt=""></a></p>
+<p>&#x73B0;&#x5728;&#x5C06;&#x5B83;&#x79FB;&#x52A8;&#x5230;<code>shader.cpp</code>&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">//&#x7F16;&#x8BD1;Shader,&#x521B;&#x5EFA;GPU&#x7A0B;&#x5E8F;;</span>
+<span class="hljs-keyword">void</span> Shader::CreateGPUProgram(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* vertex_shader_text, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* fragment_shader_text) {
+    <span class="hljs-comment">//&#x521B;&#x5EFA;&#x9876;&#x70B9;Shader</span>
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> vertex_shader = glCreateShader(GL_VERTEX_SHADER);
+    <span class="hljs-comment">//&#x6307;&#x5B9A;Shader&#x6E90;&#x7801;</span>
+    glShaderSource(vertex_shader, <span class="hljs-number">1</span>, &amp;vertex_shader_text, <span class="hljs-literal">NULL</span>);
+    <span class="hljs-comment">//&#x7F16;&#x8BD1;Shader</span>
+    glCompileShader(vertex_shader);
+    ......
+    ......
+}
+</code></pre>
+<h4 id="23-&#x6FC0;&#x6D3B;&#x4E0E;&#x7981;&#x7528;"><a name="23-&#x6FC0;&#x6D3B;&#x4E0E;&#x7981;&#x7528;" class="anchor-navigation-ex-anchor" href="#23-&#x6FC0;&#x6D3B;&#x4E0E;&#x7981;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 &#x6FC0;&#x6D3B;&#x4E0E;&#x7981;&#x7528;</h4>
+<pre><code class="lang-c++"><span class="hljs-keyword">void</span> Shader::Active() {
+    glUseProgram(gl_program_id_);
+}
+
+<span class="hljs-keyword">void</span> Shader::InActive() {
+    glUseProgram(<span class="hljs-number">-1</span>);
+}
+</code></pre>
+<h4 id="24-&#x7F13;&#x5B58;&#x4E0E;&#x67E5;&#x627E;"><a name="24-&#x7F13;&#x5B58;&#x4E0E;&#x67E5;&#x627E;" class="anchor-navigation-ex-anchor" href="#24-&#x7F13;&#x5B58;&#x4E0E;&#x67E5;&#x627E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4 &#x7F13;&#x5B58;&#x4E0E;&#x67E5;&#x627E;</h4>
+<p>&#x8C03;&#x7528;<code>Shader::Parse</code>&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;Shader&#x6587;&#x4EF6;&#x7684;&#x52A0;&#x8F7D;&#x3001;&#x7F16;&#x8BD1;&#xFF0C;&#x5E76;&#x521B;&#x5EFA;GPU Program&#xFF0C;&#x4E0D;&#x8FC7;&#x4ECE;&#x4E4B;&#x524D;&#x7684;&#x4F8B;&#x5B50;&#x77E5;&#x9053;&#xFF0C;&#x6BCF;&#x6267;&#x884C;&#x4E00;&#x6B21;Draw&#xFF0C;&#x5C31;&#x662F;&#x6FC0;&#x6D3B;&#x4E00;&#x4E2A;GPU Program&#xFF0C;&#x4E00;&#x4E2A;&#x6E38;&#x620F;&#x5C11;&#x8BF4;&#x4E5F;&#x6709;&#x4E0A;&#x767E;&#x4E2A;DrawCall&#xFF0C;&#x90A3;&#x4E48;&#x5FC5;&#x987B;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;GPU Program&#x7684;&#x7F13;&#x5B58;&#x4E86;&#x3002;
+&#x8FD9;&#x91CC;&#x4EE5;<code>Shader&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</code>&#x505A;Key&#xFF0C;Shader&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x505A;Value&#xFF0C;&#x7F13;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x5E76;&#x4E14;&#x63D0;&#x4F9B;&#x9759;&#x6001;&#x63A5;&#x53E3;<code>Find</code>&#x67E5;&#x627E;&#x6216;&#x521B;&#x5EFA;Shader:</p>
+<pre><code class="lang-c++"><span class="hljs-comment">//&#x67E5;&#x627E;&#x6216;&#x521B;&#x5EFA;Shader</span>
+Shader* Shader::Find(<span class="hljs-built_in">string</span> shader_name) {
+    <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-built_in">string</span>,Shader*&gt;::iterator iter=kShaderMap.find(shader_name);
+    <span class="hljs-keyword">if</span>(iter!=kShaderMap.end()) {
+        <span class="hljs-keyword">return</span> iter-&gt;second;
+    }
+
+    Shader* shader=<span class="hljs-keyword">new</span> Shader();
+    shader-&gt;Parse(shader_name);
+
+    kShaderMap.insert(pair&lt;<span class="hljs-built_in">string</span>,Shader*&gt;(shader_name,shader));
+
+    <span class="hljs-keyword">return</span> shader;
+}
+</code></pre>
+<h4 id="3-&#x4F7F;&#x7528;shader"><a name="3-&#x4F7F;&#x7528;shader" class="anchor-navigation-ex-anchor" href="#3-&#x4F7F;&#x7528;shader"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x4F7F;&#x7528;Shader</h4>
+<p>&#x5728;<code>main.cpp</code>&#x4E2D;&#xFF0C;&#x521B;&#x5EFA;Shader&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;:</p>
+<pre><code class="lang-c++">Shader* shader=Shader::Find(<span class="hljs-string">&quot;../data/shader/unlit&quot;</span>);
+
+mvp_location = glGetUniformLocation(shader-&gt;gl_program_id(), <span class="hljs-string">&quot;u_mvp&quot;</span>);
+vpos_location = glGetAttribLocation(shader-&gt;gl_program_id(), <span class="hljs-string">&quot;a_pos&quot;</span>);
+vcol_location = glGetAttribLocation(shader-&gt;gl_program_id(), <span class="hljs-string">&quot;a_color&quot;</span>);
+a_uv_location = glGetAttribLocation(shader-&gt;gl_program_id(), <span class="hljs-string">&quot;a_uv&quot;</span>);
+u_diffuse_texture_location= glGetUniformLocation(shader-&gt;gl_program_id(), <span class="hljs-string">&quot;u_diffuse_texture&quot;</span>);
+</code></pre>
+<p>&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x8FC7;<code>Shader::Active()</code>&#x6765;&#x6307;&#x5B9A;GPU&#x7A0B;&#x5E8F;:</p>
+<pre><code class="lang-c++"><span class="hljs-comment">//&#x6307;&#x5B9A;GPU&#x7A0B;&#x5E8F;(&#x5C31;&#x662F;&#x6307;&#x5B9A;&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;&#x3001;&#x7247;&#x6BB5;&#x7740;&#x8272;&#x5668;)</span>
+shader-&gt;Active();
+    glEnable(GL_DEPTH_TEST);
+
+    <span class="hljs-comment">//&#x6307;&#x5B9A;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;VBO</span>
+    glBindBuffer(GL_ARRAY_BUFFER, kVBO);
+    ......
+    ......
+    <span class="hljs-comment">//&#x6307;&#x5B9A;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x9876;&#x70B9;&#x7D22;&#x5F15;&#x7F13;&#x51B2;&#x533A;&#x5BF9;&#x8C61;</span>
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, kEBO);
+    glDrawElements(GL_TRIANGLES,<span class="hljs-number">36</span>,GL_UNSIGNED_SHORT,<span class="hljs-number">0</span>);<span class="hljs-comment">//&#x4F7F;&#x7528;&#x9876;&#x70B9;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x7ED8;&#x5236;&#xFF0C;&#x6700;&#x540E;&#x7684;0&#x8868;&#x793A;&#x6570;&#x636E;&#x504F;&#x79FB;&#x91CF;&#x3002;</span>
+shader-&gt;InActive();
+</code></pre>
+<p>&#x540E;&#x7EED;&#x4FEE;&#x6539;Shader&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x53EA;&#x9700;&#x8981;&#x4FEE;&#x6539;Shader&#x6587;&#x4EF6;&#x4E86;&#x3002; </p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; captainchen all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">File Modify: 
-2021-04-28 11:10:29
+2021-04-30 23:24:37
 </span></footer></body></html>
                                 
                                 </section>
@@ -701,7 +791,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.3 Shader文件创建与使用","level":"2.8.3","depth":2,"previous":{"title":"7.2 使用Mesh文件","level":"2.8.2","depth":2,"path":"pages/7. Mesh和材质/7.2 使用Mesh文件.md","ref":"pages/7. Mesh和材质/7.2 使用Mesh文件.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","tbfed-pagefooter","splitter","lightbox","anchor-navigation-ex","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy captainchen","modify_format":"YYYY-MM-DD HH:mm:ss"},"livereload":{},"splitter":{},"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"captainchen","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"游戏引擎浅入浅出","gitbook":"*"},"file":{"path":"pages/7. Mesh和材质/7.3 Shader文件创建与使用.md","mtime":"2021-04-28T03:10:29.691Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-30T05:12:31.645Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.3 Shader文件创建与使用","level":"2.8.3","depth":2,"previous":{"title":"7.2 使用Mesh文件","level":"2.8.2","depth":2,"path":"pages/7. Mesh和材质/7.2 使用Mesh文件.md","ref":"pages/7. Mesh和材质/7.2 使用Mesh文件.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","tbfed-pagefooter","splitter","lightbox","anchor-navigation-ex","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy captainchen","modify_format":"YYYY-MM-DD HH:mm:ss"},"livereload":{},"splitter":{},"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"captainchen","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"游戏引擎浅入浅出","gitbook":"*"},"file":{"path":"pages/7. Mesh和材质/7.3 Shader文件创建与使用.md","mtime":"2021-04-30T15:24:37.791Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-30T15:25:09.576Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
